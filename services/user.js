@@ -13,9 +13,9 @@ async function createUser (data) {
     }
 }
 
-async function getUserId (id) {
+async function getUserEmail (email) {
     try {
-        const user = await User.findById(id)
+        const user = await User.find({email: email})
         return user
     } catch (err) {
         return Promise.reject(err)
@@ -24,6 +24,6 @@ async function getUserId (id) {
 
 module.exports = {
     createUser,
-    getUserId
+    getUserEmail
 }
 

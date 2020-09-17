@@ -20,10 +20,10 @@ router.post('/', authMiddleware, async (req, res) => {
     }
 })
 
-router.get('/:id', authMiddleware, async (req, res) => {
+router.get('/:email', authMiddleware, async (req, res) => {
     try {
-        const { id } = req.params
-        const user = await  userServices.getUserId(id)
+        const { email } = req.params
+        const user = await  userServices.getUserEmail(email)
         res.status(200).send(user)
     } catch (err) {
         res.status(400).send(err)
